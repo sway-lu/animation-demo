@@ -1,5 +1,3 @@
-'use client'
-
 import { motion } from 'motion/react'
 import ProductGrid from './product-grid'
 
@@ -30,7 +28,7 @@ export default function TopLayer({ expanded, onExpandedChange }: Props) {
 
       <motion.div
         drag="y"
-        dragTransition={{ bounceStiffness: 500, bounceDamping: 15 }}
+        dragTransition={{ bounceStiffness: 500, bounceDamping: 20 }}
         dragConstraints={{
           top: 0,
           bottom: 0,
@@ -51,13 +49,12 @@ export default function TopLayer({ expanded, onExpandedChange }: Props) {
           即時加購享折上折！
         </h1>
 
-        <motion.div
-          layoutScroll
-          style={{ overflowY: 'scroll' }}
-          className="px-6"
+        <div
+          className="px-6 pb-24 overflow-y-auto"
+          style={{ height: 'calc(100vh - 6rem)' }}
         >
           <ProductGrid count={5} color="green" focused={expanded} />
-        </motion.div>
+        </div>
       </motion.div>
     </motion.div>
   )
