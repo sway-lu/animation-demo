@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import ProductGrid from './product-grid'
+import { prevent } from '@/utils/event'
 
 interface Props {
   expanded: boolean
@@ -52,6 +53,7 @@ export default function TopLayer({ expanded, onExpandedChange }: Props) {
         <div
           className="px-6 pb-24 overflow-y-auto"
           style={{ height: 'calc(100vh - 6rem)' }}
+          onPointerDown={prevent()}
         >
           <ProductGrid count={5} color="green" focused={expanded} />
         </div>
